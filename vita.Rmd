@@ -25,17 +25,17 @@ require(magrittr)
 require(dplyr)
 
 pubs <- bibliography_entries("publications.bib") %>% arrange(desc(issued))
-edu <- tibble::tribble(
-  ~what, ~when, ~with,
-  "Ph.D. Business Administration, Marketing", 2024, "University of Tennessee - Knoxville", # nolint
-  "B.Sc. Psychology", 2017, "University of Cincinnati",
-  "B.Sc. Neuroscience", 2017, "University of Cincinnati",
-)
 ```
 
 # Education
 
 ```{r EDUCATION}
+edu <- tibble::tribble(
+  ~what, ~when, ~with,
+  "Ph.D. Business Administration, Marketing", 2024, "University of Tennessee - Knoxville",
+  "B.Sc. Psychology", 2017, "University of Cincinnati",
+  "B.Sc. Neuroscience", 2017, "University of Cincinnati",
+)
 edu %>% brief_entries(with = with, what = what, when = when)
 ```
 
