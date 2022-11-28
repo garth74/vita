@@ -11,7 +11,10 @@ date: "`r format(Sys.time(), '%B %Y')`"
 headcolor: 990000
 aboutme: "RESEARCH INTERESTS - PLACEHOLDER"
 docname: CV
-output: vitae::latexcv
+output: 
+  vitae::latexcv:
+    theme: classic
+
 ---
 
 ```{r setup, include=FALSE}
@@ -61,7 +64,6 @@ pubs %>% dplyr::filter(type == "")
 pubs %>% dplyr::filter(type == "paper-conference")
 ```
 
-\newpage
 
 # Teaching Experience
 
@@ -77,6 +79,18 @@ teach <- tibble::tribble(
 )
 
 teach %>% detailed_entries(what = what, when = when, with = with, where = where, why = why)
+```
+
+
+# Award, Honors, and Fellowships
+
+```{r, AWARDS}
+awards <- tibble::tribble(
+  ~what, ~when, ~with,
+  "Schumann Fellowship", 2022, "University of Tennessee"
+)
+
+awards %>% brief_entries(what = what, when = when, with = with)
 ```
 
 \newpage
