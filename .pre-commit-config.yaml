@@ -4,5 +4,6 @@ repos:
       - id: render-rmarkdown
         name: render-rmarkdown
         entry: Rscript -e 'rmarkdown::render("vita.Rmd")'
+        files: '^vita.Rmd$'
         language: system
         pass_filenames: false
