@@ -44,7 +44,8 @@ pubs %>% dplyr::filter(type == "article-journal")
 
 # Manuscripts in Progress
 
-```{r, INPROGRESS} 
+```{r, INPROGRESS}
+# TODO: Add other projects under way & add a way to identify the status of the project (i.e., data collection phase, writing, etc.)
 pubs %>% dplyr::filter(type == "manuscript")
 ```
 
