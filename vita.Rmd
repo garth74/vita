@@ -1,0 +1,109 @@
+---
+name: Garrett
+surname: Shipley
+position: "Marketing Doctoral Candidate"
+address: "Stokely Management Center 916 Volunteer Boulevard Knoxville, TN 37966-0530"
+www: "PLACEHOLDER"
+email: "gshiple2@vols.utk.edu"
+github: garth74
+orcid: 0000-0002-0444-0367
+date: "`r format(Sys.time(), '%B %Y')`"
+headcolor: 990000
+aboutme: "RESEARCH INTERESTS - PLACEHOLDER"
+docname: CV
+output: vitae::latexcv
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, root.dir = ".")
+
+require(vitae)
+require(magrittr)
+require(dplyr)
+
+pubs <- bibliography_entries("publications.bib") %>% arrange(desc(issued))
+edu <- tibble::tribble(
+  ~what, ~when, ~with,
+  "Ph.D. Business Administration, Marketing", 2024, "University of Tennessee - Knoxville", # nolint
+  "B.Sc. Psychology", 2017, "University of Cincinnati",
+  "B.Sc. Neuroscience", 2017, "University of Cincinnati",
+)
+```
+
+# Education
+
+```{r EDUCATION}
+edu %>% brief_entries(with = with, what = what, when = when)
+```
+
+# Publications
+
+```{r PUBLICATIONS}
+pubs %>% dplyr::filter(type == "article-journal")
+```
+
+# Manuscripts in Progress
+
+```{r, INPROGRESS} 
+pubs %>% dplyr::filter(type == "manuscript")
+```
+
+# Other Publications
+
+```{r, OTHER}
+pubs %>% dplyr::filter(type == "")
+```
+
+# Conference Presentations, Proceedings, and Abstracts
+
+```{r, CONFERENCES}
+pubs %>% dplyr::filter(type == "paper-conference")
+```
+
+\newpage
+
+# Teaching Experience
+
+```{r, TEACHING}
+teach <- tibble::tribble(
+  ~what, ~when, ~with, ~where, ~why,
+  "Marketing Research & Insights", "Summer 2021", "University of Tennessee - Knoxville", NA, list(
+    "Overall Rating: 4.65"
+  ),
+  "Marketing Research & Insights", "Summer 2022", "University of Tennessee - Knoxville", NA, list(
+    "Overall Rating: 4.67"
+  )
+)
+
+teach %>% detailed_entries(what = what, when = when, with = with, where = where, why = why)
+```
+
+\newpage
+
+# Ph.D. Coursework
+
+```{r, COURSEWORK}
+coursework <- tibble::tribble(
+  ~what, ~when, ~with, ~where,
+  # Nonquantitative Courses
+  "Survey of Topics in Marketing Strategy Research", 2019, "Kelly Hewett", NA,
+  "Survey of Topics in Consumer Behavior", 2020, "Stephanie Noble", NA,
+  "Current Topics in Marketing Research", 2020, "Neeraj Bharadwaj", NA,
+  "Current Topics in Consumer Behavior", 2021, "Jonathan Hasford", NA,
+  "Systems of Psychology", 2020, "Timothy Hulsey", NA,
+  "Cognitive & Affective Bases of Behavior", 2021, "Jeff Larsen", NA,
+  "Social Psychology", 2021, "Garriy Shteynberg", NA,
+
+  # Quantitative Courses
+  "Quantitative Research Methods", 2019, "Alex Zablah ", "SPSS",
+  "Statistics for Research", 2020, "Cheryl Hild ", "SPSS",
+  "Structural Equations Modeling", 2020, "Lawrence Elledge ", "Mplus",
+  "Multiple Regression", 2020, "Lowell Gaertner ", "Stata",
+  "Analysis of Variance", 2020, "Lowell Gaertner ", "Stata",
+  "Text Analytics", 2020, "Wenjen Zhou ", "Python",
+  "Advanced Topics in Data Mining & Machine Learning", 2022, "Wenjen Zhou ", "Python",
+  "Econometrics Methods", 2022, "Xuqi Chen ", "R"
+)
+
+coursework %>% detailed_entries(what = what, when = when, with = with, where = where)
+```
