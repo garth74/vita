@@ -21,7 +21,7 @@ require(vitae)
 require(magrittr)
 require(dplyr)
 
-pubs <- bibliography_entries("publications.bib") %>% arrange(desc(issued))
+pubs <- bibliography_entries("publications.bib")
 ```
 
 # Education
@@ -39,7 +39,7 @@ edu %>% brief_entries(with = with, what = what, when = when)
 # Publications
 
 ```{r PUBLICATIONS}
-pubs %>% dplyr::filter(type == "article-journal")
+pubs %>% dplyr::filter(type == "article-journal") %>% arrange(desc(issued))
 ```
 
 # Manuscripts in Progress
@@ -52,13 +52,13 @@ pubs %>% dplyr::filter(type == "manuscript")
 # Other Publications
 
 ```{r, OTHER}
-pubs %>% dplyr::filter(type == "")
+pubs %>% dplyr::filter(type == "") %>% arrange(desc(issued))
 ```
 
 # Conference Presentations, Proceedings, and Abstracts
 
 ```{r, CONFERENCES}
-pubs %>% dplyr::filter(type == "paper-conference")
+pubs %>% dplyr::filter(type == "paper-conference") %>% arrange(desc(issued))
 ```
 
 
