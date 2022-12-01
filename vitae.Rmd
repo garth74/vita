@@ -3,19 +3,16 @@ name: Garrett
 surname: Shipley
 position: "Marketing Doctoral Candidate"
 address: "Stokely Management Center 916 Volunteer Boulevard Knoxville, TN 37966-0530"
-www: "PLACEHOLDER"
-email: "gshiple2@vols.utk.edu"
-github: garth74
+www: garth74.github.io
+email: gshiple2@vols.utk.edu
 orcid: 0000-0002-0444-0367
-date: "`r format(Sys.time(), '%B %Y')`"
 headcolor: 990000
-aboutme: "RESEARCH INTERESTS - PLACEHOLDER"
 docname: CV
 output: 
   vitae::latexcv:
     theme: classic
-
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, root.dir = ".")
@@ -48,7 +45,7 @@ pubs %>% dplyr::filter(type == "article-journal")
 # Manuscripts in Progress
 
 ```{r, INPROGRESS}
-# TODO: Add other projects under way & add a way to identify the status of the project (i.e., data collection phase, writing, etc.)
+# TODO: add a way to identify the status of the project (i.e., data collection phase, writing, etc.)
 pubs %>% dplyr::filter(type == "manuscript")
 ```
 
@@ -71,10 +68,10 @@ pubs %>% dplyr::filter(type == "paper-conference")
 teach <- tibble::tribble(
   ~what, ~when, ~with, ~where, ~why,
   "Marketing Research & Insights", "Summer 2021", "University of Tennessee - Knoxville", NA, list(
-    "Overall Rating: 4.65"
+    "Overall Rating: 4.65 / 5.00"
   ),
   "Marketing Research & Insights", "Summer 2022", "University of Tennessee - Knoxville", NA, list(
-    "Overall Rating: 4.67"
+    "Overall Rating: 4.67 / 5.00"
   )
 )
 
